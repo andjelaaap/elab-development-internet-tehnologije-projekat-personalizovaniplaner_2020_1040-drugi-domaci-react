@@ -3,7 +3,7 @@ import { BsCart } from "react-icons/bs";
 
 function NavBar() {
   return (
-    <div className="NavBar">
+    <div className="navBar">
       <a>Moja prodavnica </a>
      <a className='cart-item'>
         <BsCart style={{marginLeft:10}}/>

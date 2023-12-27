@@ -1,14 +1,13 @@
 import React from 'react'
 import OneProduct from './OneProduct'
 
-const Products = () => {
+
+const Products = ({products}) => {
   return (
     <div className= 'all-products'>
-      <OneProduct/>
-      <OneProduct/>
-      <OneProduct/>
-      <OneProduct/>
-      <OneProduct/>
+          {products.map((prod) => (<OneProduct product= {prod} key = {prod.id} />
+      ))}
+      
     </div>
   )
 }

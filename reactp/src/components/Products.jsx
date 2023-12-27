@@ -2,7 +2,7 @@ import React from 'react'
 import OneProduct from './OneProduct'
 
 
-const Products = ({products, onAdd}) => {
+const Products = ({products, onAdd, remFromCart}) => {
     
   return (
     <div className= 'all-products'>

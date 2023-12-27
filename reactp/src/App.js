@@ -51,11 +51,21 @@ function App() {
     console.log(cartNum);
   }
 
+  function removeProduct(title){
+    if (product.amount > 0) {
+      console.log("Obrisan je proizvod: " + title);
+      setCartNum(cartNum -1);
+      
+    } else {
+      alert("Amount of product is already 0.");
+    }
+  }
+
   return (
     <div className="App">
      
         <NavBar cartNum={cartNum}/>
-        <Products products={products} onAdd={addProduct}/>
+        <Products products={products} onAdd={addProduct} remFromCart={removeProduct}/>
         
     </div>
   );

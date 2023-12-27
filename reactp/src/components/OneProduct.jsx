@@ -2,7 +2,7 @@ import React from 'react'
 import { BsCartPlus } from "react-icons/bs";
 import { BsCartDash } from "react-icons/bs";
 
-function OneProduct({product, onAdd}) {
+function OneProduct({product, onAdd, remFromCart}) {
     
     const products = [
         {
@@ -58,7 +58,7 @@ function OneProduct({product, onAdd}) {
         </p>
       </div>
       <button className='btn' onClick={()=>onAdd(product.title)}><BsCartPlus/></button>
-      <button className='btn'><BsCartDash/></button>
+      <button className='btn' onClick={()=>remFromCart(product.title)}><BsCartDash/></button>
     </div>
   )
 }

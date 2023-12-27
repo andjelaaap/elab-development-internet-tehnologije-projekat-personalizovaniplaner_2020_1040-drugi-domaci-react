@@ -47,8 +47,8 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
     //   }
     
   return (
-    <div className='card' style={{margin:20, borderStyle:"double"}}>
-      <img src="https:/picsum.photos/200" alt="Neka slika" />
+    <div className={inCart === 1 ? "card" : "card-cart"} style={{margin:20, borderStyle:"double"}}>
+      <img className={inCart === 1 ? "card-img-top" : "card-img-left"} src="https:/picsum.photos/200" alt="Neka slika" />
       <div className='card-body'>
         <h3 className='card-title'>
              {product.title}

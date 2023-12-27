@@ -2,7 +2,7 @@ import React from 'react'
 import { BsCartPlus } from "react-icons/bs";
 import { BsCartDash } from "react-icons/bs";
 
-function OneProduct({product, onAdd, remFromCart}) {
+function OneProduct({product, onAdd, remFromCart,inCart}) {
     
     const products = [
         {
@@ -57,10 +57,18 @@ function OneProduct({product, onAdd, remFromCart}) {
             {product.description}
         </p>
       </div>
-      <button className='btn' onClick={()=>onAdd(product.title)}><BsCartPlus/></button>
-      <button className='btn' onClick={()=>remFromCart(product.title)}><BsCartDash/></button>
+      {inCart === 1 ?( <><button className='btn' onClick={()=>onAdd(product.title)}>
+        <BsCartPlus/>
+        </button>
+        <button className='btn' onClick={()=>remFromCart(product.title)}>
+          <BsCartDash/>
+           </button>
+            </> 
+            ) : (
+              <h4>Amount: {product.amount}</h4>
+            ) }
     </div>
-  )
+  );
 }
 
 export default OneProduct

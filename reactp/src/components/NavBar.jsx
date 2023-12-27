@@ -1,15 +1,17 @@
 import React from 'react'
 import { BsCart } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function NavBar({cartNum}) {
   return (
     <div className="navBar">
-      <a href="/">Moja prodavnica </a>
-      <a href="/cart" className='cart-item'>
+      <Link to="/">Moja prodavnica </Link>
+      <Link to="/cart" className='cart-item'>
         <BsCart style={{marginLeft:10}}/>
-      </a>
-      <a className='cart-num'>{cartNum}</a>
-    </div>
+        <a className='cart-num'>{cartNum}</a>
+      </Link>
+      
+    </div> 
   );
 }
 

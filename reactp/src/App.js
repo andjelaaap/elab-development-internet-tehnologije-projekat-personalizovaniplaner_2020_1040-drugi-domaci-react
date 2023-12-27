@@ -4,7 +4,7 @@ import NavBar from './components/NavBar';
 import Products from './components/Products';
 import { useState } from 'react';
 import Cart from './components/Cart';
-
+import {BrowserRouter, Routes,Route,Link} from "react-router-dom";
 
 function App() {
   const[cartNum, setCartNum] = useState(0);
@@ -69,7 +69,7 @@ function App() {
         <NavBar cartNum={cartNum}/>
         <Routes>
           <Route path="/" element={<Products products={products} onAdd={addProduct} remFromCart={removeProduct}/>}/>
-          <Route path="/Cart" element={<Cart/>}/>
+          <Route path="/cart" element={<cart/>}/>
         </Routes>
        
         

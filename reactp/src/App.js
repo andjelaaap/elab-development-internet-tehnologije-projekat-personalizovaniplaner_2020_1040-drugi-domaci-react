@@ -52,7 +52,7 @@ function App() {
   }
 
   function removeProduct(title){
-    if (product.amount > 0) {
+    if (cartNum> 0) {
       console.log("Obrisan je proizvod: " + title);
       setCartNum(cartNum -1);
       

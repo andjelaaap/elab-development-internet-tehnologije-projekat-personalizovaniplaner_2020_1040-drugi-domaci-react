@@ -2,7 +2,7 @@ import React from 'react'
 import { BsCartPlus } from "react-icons/bs";
 import { BsCartDash } from "react-icons/bs";
 
-function OneProduct({product}) {
+function OneProduct({product, onAdd}) {
     
     const products = [
         {
@@ -41,6 +41,10 @@ function OneProduct({product}) {
             amount: 0,
           },
       ];
+
+    //   function onAdd(title){
+    //   console.log("Dodat proizvod:" + title);
+    //   }
     
   return (
     <div className='card' style={{margin:20, borderStyle:"double"}}>
@@ -53,7 +57,7 @@ function OneProduct({product}) {
             {product.description}
         </p>
       </div>
-      <button className='btn'><BsCartPlus/></button>
+      <button className='btn' onClick={()=>onAdd(product.title)}><BsCartPlus/></button>
       <button className='btn'><BsCartDash/></button>
     </div>
   )

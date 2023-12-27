@@ -2,8 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import Products from './components/Products';
+import { useState } from 'react';
 
 function App() {
+  const[cartNum, setCartNum] = useState(0);
+
   const products = [
     {
       id: 1,
@@ -42,11 +45,17 @@ function App() {
       },
   ];
 
+  function addProduct(title){
+    console.log("Dodat je proizvod: " + title);
+    setCartNum(cartNum + 1);
+    console.log(cartNum);
+  }
+
   return (
     <div className="App">
      
-        <NavBar/>
-        <Products products={products}/>
+        <NavBar cartNum={cartNum}/>
+        <Products products={products} onAdd={addProduct}/>
         
     </div>
   );

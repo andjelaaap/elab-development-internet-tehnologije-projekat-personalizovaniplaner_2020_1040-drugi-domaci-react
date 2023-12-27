@@ -3,6 +3,8 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Products from './components/Products';
 import { useState } from 'react';
+import Cart from './components/Cart';
+
 
 function App() {
   const[cartNum, setCartNum] = useState(0);
@@ -62,12 +64,16 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <BrowserRouter className="App">
      
         <NavBar cartNum={cartNum}/>
-        <Products products={products} onAdd={addProduct} remFromCart={removeProduct}/>
+        <Routes>
+          <Route path="/" element={<Products products={products} onAdd={addProduct} remFromCart={removeProduct}/>}/>
+          <Route path="/Cart" element={<Cart/>}/>
+        </Routes>
+       
         
-    </div>
+    </BrowserRouter>
   );
 }
 

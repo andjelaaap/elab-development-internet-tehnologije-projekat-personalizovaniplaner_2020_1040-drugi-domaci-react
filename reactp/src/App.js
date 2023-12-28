@@ -8,11 +8,12 @@ import {BrowserRouter, Routes,Route} from "react-router-dom";
 
 function App() {
   const[cartNum, setCartNum] = useState(0);
-
-  const products = [
+  const[cartProducts, setCartProducts] = useState([]);
+  const [products] = useState([
     {
       id: 1,
       title: "Standardni planer",
+      url:"https://www.mininoplaneri.com/pub/catalog/17023084255994_make-it-happen.jpg",
       description:
         "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
       amount: 0,
@@ -45,22 +46,35 @@ function App() {
           "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
         amount: 0,
       },
-  ];
+  ]);
 
-  function addProduct(title){
-    console.log("Dodat je proizvod: " + title);
-    setCartNum(cartNum + 1);
-    console.log(cartNum);
+  function refreshCart(){
+  let newProducts = products.filter((prod) => prod.amount > 0);
+  setCartProducts(newProducts);
   }
 
-  function removeProduct(title){
-    if (cartNum> 0) {
-      console.log("Obrisan je proizvod: " + title);
-      setCartNum(cartNum -1);
-      
-    } else {
-      alert("Amount of product is already 0.");
+  function addProduct(title, id){
+    console.log("Dodat je proizvod: " + title);
+    setCartNum(cartNum + 1);
+    //console.log(cartNum);
+    products.forEach((prod)=>{
+    if(prod.id === id){
+      prod.amount++;
     }
+    })
+    refreshCart();
+  }
+
+  function removeProduct(title, id){
+    products.forEach((prod)=> {
+      if(prod.id === id){
+        if(prod.amount > 0){
+          prod.amount--;
+          setCartNum(cartNum-1);
+        }
+      }
+    });
+    refreshCart();
   }
 
   return (
@@ -69,7 +83,7 @@ function App() {
         <NavBar cartNum={cartNum}/>
         <Routes>
           <Route path="/" element={<Products products={products} onAdd={addProduct} remFromCart={removeProduct}/>}/>
-          <Route path="/cart" element={<Cart products={products}/>}/>
+          <Route path="/cart" element={<Cart products={cartProducts}/>}/>
         </Routes>
        
         

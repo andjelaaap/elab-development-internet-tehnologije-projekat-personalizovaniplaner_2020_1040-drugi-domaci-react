@@ -48,7 +48,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
     
   return (
     <div className={inCart === 1 ? "card" : "card-cart"} style={{margin:20, borderStyle:"double"}}>
-      <img className={inCart === 1 ? "card-img-top" : "card-img-left"} src="https:/picsum.photos/200" alt="Neka slika" />
+      <img src={product.url} alt="image" className="img-product" />
       <div className='card-body'>
         <h3 className='card-title'>
              {product.title}
@@ -57,10 +57,10 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
             {product.description}
         </p>
       </div>
-      {inCart === 1 ?( <><button className='btn' onClick={()=>onAdd(product.title)}>
+      {inCart === 1 ?( <><button className='btn' onClick={()=>onAdd(product.title, product.id)}>
         <BsCartPlus/>
         </button>
-        <button className='btn' onClick={()=>remFromCart(product.title)}>
+        <button className='btn' onClick={()=>remFromCart(product.title, product.id)}>
           <BsCartDash/>
            </button>
             </> 

@@ -5,6 +5,7 @@ import Products from './components/Products';
 import { useState } from 'react';
 import Cart from './components/Cart';
 import {BrowserRouter, Routes,Route} from "react-router-dom";
+import Meni from './components/Meni';
 
 function App() {
   const[cartNum, setCartNum] = useState(0);
@@ -21,6 +22,7 @@ function App() {
     {
       id: 2,
       title: "Biznis planer",
+      url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17023055160709_master-plan.jpg",
       description:
         "Funkcionalnost, preglednost i sveden dizajn spojeni u ovaj rokovnik koji ce biti vas najbolji saradnik u narednih godinu dana. Rokovnik sadrzi kalendar za 2 godine, mesecne i nedeljne planere za 12 meseci i vise od 30 strana za beleske.",
       amount: 0,
@@ -28,6 +30,7 @@ function App() {
     {
       id: 3,
       title: "Planer za vencanje",
+      url:"https://www.mininoplaneri.com/pub/catalog/16751851586049_auto.jpg",
       description:
         "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
       amount: 0,
@@ -35,6 +38,7 @@ function App() {
     {
         id: 4,
         title: "Planer ishrane",
+        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003864009044_modern_flowers2.jpg",
         description:
           "Praktican i lagan planer za sve one koji planiraju obroke unapred, prate poseban rezim ishrane ili jednostavno uzivaju u kuvanju.",
         amount: 0,
@@ -42,6 +46,7 @@ function App() {
       {
         id: 5,
         title: "Studentski planer",
+        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
         description:
           "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
         amount: 0,
@@ -56,7 +61,6 @@ function App() {
   function addProduct(title, id){
     console.log("Dodat je proizvod: " + title);
     setCartNum(cartNum + 1);
-    //console.log(cartNum);
     products.forEach((prod)=>{
     if(prod.id === id){
       prod.amount++;
@@ -82,11 +86,28 @@ function App() {
      
         <NavBar cartNum={cartNum}/>
         <Routes>
-          <Route path="/" element={<Products products={products} onAdd={addProduct} remFromCart={removeProduct}/>}/>
-          <Route path="/cart" element={<Cart products={cartProducts}/>}/>
+        <Route
+          path="/products"
+          element={
+            <>
+              <Products
+                products={products}
+                onAdd={addProduct}
+                onRemove={removeProduct}
+              />
+            </>
+          }
+        />
+          <Route path="/" element={<Meni cartNum={cartNum} isHome={1} />}/>
+          <Route path="/cart" element={
+          <>
+          <Cart products={cartProducts}/>
+          </>
+          }
+          />
         </Routes>
        
-        
+      
     </BrowserRouter>
   );
 }

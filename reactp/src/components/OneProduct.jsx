@@ -41,13 +41,9 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
             amount: 0,
           },
       ];
-
-    //   function onAdd(title){
-    //   console.log("Dodat proizvod:" + title);
-    //   }
     
   return (
-    <div className={inCart === 1 ? "card" : "card-cart"} style={{margin:20, borderStyle:"double"}}>
+    <div className={inCart === 1 ? "card" : "card-cart"} style={{margin:20, borderStyle:"double", backgroundColor: 'pink', width: '30%',justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column', borderRadius: '20px'}}>
       <img src={product.url} alt="image" className="img-product" />
       <div className='card-body'>
         <h3 className='card-title'>
@@ -57,7 +53,8 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
             {product.description}
         </p>
       </div>
-      {inCart === 1 ?( <><button className='btn' onClick={()=>onAdd(product.title, product.id)}>
+      <div style={{display: 'flex', flexDirection: 'row'}}>      
+        {inCart === 1 ?( <><button className='btn' onClick={()=>onAdd(product.title, product.id)}>
         <BsCartPlus/>
         </button>
         <button className='btn' onClick={()=>remFromCart(product.title, product.id)}>
@@ -66,7 +63,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
             </> 
             ) : (
               <h4>Amount: {product.amount}</h4>
-            ) }
+            ) }</div>
     </div>
   );
 }

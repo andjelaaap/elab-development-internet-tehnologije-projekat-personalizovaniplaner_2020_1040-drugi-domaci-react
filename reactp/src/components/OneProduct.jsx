@@ -11,6 +11,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
           description:
             "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
           amount: 0,
+          price:"1500din"
         },
         {
           id: 2,
@@ -18,6 +19,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
           description:
             "Funkcionalnost, preglednost i sveden dizajn spojeni u ovaj rokovnik koji ce biti vas najbolji saradnik u narednih godinu dana. Rokovnik sadrzi kalendar za 2 godine, mesecne i nedeljne planere za 12 meseci i vise od 30 strana za beleske.",
           amount: 0,
+          price:"1500din"
         },
         {
           id: 3,
@@ -25,6 +27,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
           description:
             "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
           amount: 0,
+          price:"1500din"
         },
         {
             id: 4,
@@ -32,6 +35,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
             description:
               "Praktican i lagan planer za sve one koji planiraju obroke unapred, prate poseban rezim ishrane ili jednostavno uzivaju u kuvanju.",
             amount: 0,
+            price:"1500din"
           },
           {
             id: 5,
@@ -39,6 +43,7 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
             description:
               "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
             amount: 0,
+            price:"1500din"
           },
       ];
     
@@ -51,6 +56,9 @@ function OneProduct({product, onAdd, remFromCart,inCart}) {
         </h3>
         <p className='card-text' >
             {product.description}
+        </p>
+        <p className='card-price' >
+            {product.price}
         </p>
       </div>
       <div style={{display: 'flex', flexDirection: 'row'}}>      

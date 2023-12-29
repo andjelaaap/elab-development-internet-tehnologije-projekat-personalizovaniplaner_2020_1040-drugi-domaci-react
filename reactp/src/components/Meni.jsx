@@ -30,7 +30,7 @@ function Meni({cartNum, isHome, isShop}) {
         alt="Opis slike"
         style={{ width: '200px', height: 'auto' }}
       />
-       <p>Organizirajte svoj dan, nedelju i godinu koristeći naše unikatne poklone.</p>
+       <p>Organizirajte svoj dan, nedelju i godinu koristeći naše unikatne planere. Upotpunite dozivljaj personalizacijom bilo kog planera koji odaberete.</p>
        <div className='menu-bar-info'>
          <p>Kontakt: 064/267 72 76</p>
          <p>Radno vreme: Pon-Ned 07-22h</p>

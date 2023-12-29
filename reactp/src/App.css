@@ -128,3 +128,8 @@ a {
   width: 100%;
   background-image: url('https://i.pinimg.com/736x/43/ba/d9/43bad91c990d43b28f82731ec85be268.jpg')
 }
+
+.card-price{
+  text-align: center;
+  text-decoration: underline;
+}

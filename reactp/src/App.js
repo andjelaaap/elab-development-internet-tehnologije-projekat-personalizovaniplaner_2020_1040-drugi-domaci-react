@@ -34,7 +34,7 @@ function App() {
       title: "Planer za vencanje",
       url:"https://www.mininoplaneri.com/pub/catalog/16751851586049_auto.jpg",
       description:
-        "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+        "Planer za venčanje vas vodi kroz listu obaveza po mesecima informativno, a onda detaljno po sekcijama sa vama prelazi svaki segment, od odabira venčanice, cipela i aksesoara, preko kreiranja spiska gostiju i deljenja pozivnica, odabira prostora za svadbu, kupovine burmi, podele zaduženja, pa sve do najsitnijih detalja.",
       amount: 0,
       price:"1700din"
     },
@@ -98,7 +98,7 @@ function App() {
               <Products
                 products={products}
                 onAdd={addProduct}
-                onRemove={removeProduct}
+                remFromCart={removeProduct}
               />
             </>
           }

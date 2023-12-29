@@ -15,24 +15,26 @@ function Meni({cartNum, isHome, isShop}) {
     <Link
      to = "/products"
      className="menu-bar-items"
-     // style = {isShop===1 ? {fontStyle:"italic"} : {textDecorationLine:"underline"}}
      >
      Planeri
     </Link>  
    </div>
    {isShop === 1 || isHome === 0 ? (
      <Link to = "/cart" className='cart-items'>
-       {/* <BsCartFill className='icon-cart' /> */}
-       {/* <p className='cart-num'>{cartNum}</p> */}
        
      </Link>
    ) : (
      <div className="menu-bar-text">
-       <p>Za sladak svaki dan ili neki poseban</p>
+       <img
+        src="https://www.zeppelin.rs/login/media/images/categories/0-58254900-1666006933.png"
+        alt="Opis slike"
+        style={{ width: '200px', height: 'auto' }}
+      />
+       <p>Organizirajte svoj dan, nedelju i godinu koristeći naše unikatne poklone.</p>
        <div className='menu-bar-info'>
          <p>Kontakt: 064/267 72 76</p>
          <p>Radno vreme: Pon-Ned 07-22h</p>
-         <p>Adresa: Lava Tolstoja 13a, Pančevo</p>
+         <p>Adresa: Bulevar Kralja Aleksandra 10, Beograd</p>
        </div>
      </div>
    )}

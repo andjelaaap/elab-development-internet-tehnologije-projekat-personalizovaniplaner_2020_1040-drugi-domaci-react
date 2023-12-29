@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 function NavBar({cartNum}) {
   return (
     <div className="navBar">
+       <img
+        src="https://www.zeppelin.rs/login/media/images/categories/0-58254900-1666006933.png"
+        alt="Opis slike"
+        style={{ width: '40px', height: 'auto', marginRight:'20px'}}
+      />
       <Link to="/">Moja prodavnica </Link>
       <Link to="/cart" className='cart-item'>
         <BsCart style={{marginLeft:10}}/>

@@ -53,7 +53,7 @@
 }
 
 .btn {
-  background-color: cornflowerblue;
+  background-color: palevioletred;
   color: white;
   padding-top: 10px;
   padding-bottom: 5px;
@@ -61,7 +61,8 @@
   padding-right: 10px;
   margin: 3px;
   border-radius: 3px;
-  border-width: 0px;
+  border-width: 2px;
+  border-color: grey;
 }
 
 a {

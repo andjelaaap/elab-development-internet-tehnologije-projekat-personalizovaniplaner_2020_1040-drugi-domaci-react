@@ -12,7 +12,7 @@ const Products = ({products, onAdd, remFromCart}) => {
       </div>
 
       <div style={{display: 'flex', flexDirection: 'row'}}>
-      {products.slice(3,5).map((prod) => (<OneProduct product= {prod} key = {prod.id} onAdd={onAdd} remFromCart={remFromCart} inCart={1}/>
+      {products.slice(3,8).map((prod) => (<OneProduct product= {prod} key = {prod.id} onAdd={onAdd} remFromCart={remFromCart} inCart={1}/>
       ))}
       </div>
     </div>

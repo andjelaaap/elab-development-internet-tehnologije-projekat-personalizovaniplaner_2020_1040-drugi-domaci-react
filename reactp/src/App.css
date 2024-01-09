@@ -32,15 +32,17 @@
 }
 
 .all-products {
-  display: flex;
-  /* margin: 20px; */
-  flex-direction: column;
+  margin-top: 70px;
+    margin-right: 110px;
+    margin-left: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .card {
   border-style: solid;
   border-color: rgb(211, 211, 211);
-  border-radius: 10px;
 }
 
 .card-img-top {

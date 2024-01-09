@@ -1,5 +1,4 @@
 import React from 'react';
-import {BsCartFill} from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import NavBar from './NavBar';
 
@@ -12,6 +11,7 @@ function Meni({cartNum, isHome, isShop}) {
       isHome===1 ? "menu-bar-items-div" : "menu-bar-items-div-else"
       }
     >
+      
     <Link
      to = "/products"
      className="menu-bar-items"

@@ -56,6 +56,33 @@ function App() {
         amount: 0,
         price:"1500din"
       },
+      {
+        id: 6,
+        title: "Studentski planer",
+        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        description:
+          "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+        amount: 0,
+        price:"1500din"
+      },
+      {
+        id: 7,
+        title: "Studentski planer",
+        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        description:
+          "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+        amount: 0,
+        price:"1500din"
+      },
+      {
+        id: 8,
+        title: "Studentski planer",
+        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        description:
+          "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+        amount: 0,
+        price:"1500din"
+      }
   ]);
 
   function refreshCart(){

@@ -135,3 +135,24 @@ a {
   text-align: center;
   text-decoration: underline;
 }
+
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination li {
+  margin: 0 5px;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pagination li.active {
+  background-color: palevioletred;
+  color: white;
+  border-color: palevioletred;
+}

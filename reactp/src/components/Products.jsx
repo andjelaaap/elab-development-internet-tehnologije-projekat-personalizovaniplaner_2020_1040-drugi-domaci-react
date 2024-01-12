@@ -1,33 +1,35 @@
 import React, { useState } from 'react';
 import OneProduct from './OneProduct';
 import ReactPaginate from 'react-paginate';
+import usePagination from './usePagination';
 
 const Products = ({ products, onAdd, remFromCart }) => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 6;
+  const { currentPage, handlePageChange, getItemsForCurrentPage, getPageCount } = usePagination(itemsPerPage);
 
-  const handlePageChange = ({ selected }) => {
-    setCurrentPage(selected);
+  const [filter, setFilter] = useState('');
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
   };
 
-  const productsPerPage = 5;
+  const filteredProducts = products.filter((prod) =>
+    prod.title.toLowerCase().includes(filter.toLowerCase())
+  );
 
-  const getProductsForCurrentPage = () => {
-    const startIndex = currentPage * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
+  const paginatedProducts = getItemsForCurrentPage(filteredProducts);
 
-    return products.slice(startIndex, endIndex);
-  };
+  const rows = [];
+  for (let i = 0; i < paginatedProducts.length; i += 3) {
+    rows.push(paginatedProducts.slice(i, i + 3));
+  }
 
   const renderProducts = () => {
-    if (currentPage === 0) {
-      // Ako se nalazim na prvoj stranici, podelite proizvode u dva reda
-      const firstRow = getProductsForCurrentPage().slice(0, 3);
-      const secondRow = getProductsForCurrentPage().slice(3, 5);
-
-      return (
-        <>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            {firstRow.map((prod) => (
+    return (
+      <>
+        {rows.map((row, index) => (
+          <div key={index} style={{ display: 'flex', flexDirection: 'row' }}>
+            {row.map((prod) => (
               <OneProduct
                 product={prod}
                 key={prod.id}
@@ -37,45 +39,29 @@ const Products = ({ products, onAdd, remFromCart }) => {
               />
             ))}
           </div>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            {secondRow.map((prod) => (
-              <OneProduct
-                product={prod}
-                key={prod.id}
-                onAdd={onAdd}
-                remFromCart={remFromCart}
-                inCart={1}
-              />
-            ))}
-          </div>
-        </>
-      );
-    } else {
-      // Inače, prikaži standardni broj proizvoda po stranici
-      return (
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          {getProductsForCurrentPage().map((prod) => (
-            <OneProduct
-              product={prod}
-              key={prod.id}
-              onAdd={onAdd}
-              remFromCart={remFromCart}
-              inCart={1}
-            />
-          ))}
-        </div>
-      );
-    }
+        ))}
+      </>
+    );
   };
 
   return (
     <div className='all-products'>
+      <div className='filter'>
+        <label htmlFor='filter'>Pretraga: </label>
+        <input className='input'
+          type='text'
+          id='filter'
+          value={filter}
+          onChange={handleFilterChange}
+        />
+      </div>
+
       {renderProducts()}
 
       <div>
         <ReactPaginate
           className='pagination'
-          pageCount={Math.ceil(products.length / productsPerPage)}
+          pageCount={getPageCount(filteredProducts.length)}
           pageRangeDisplayed={3}
           marginPagesDisplayed={1}
           onPageChange={handlePageChange}

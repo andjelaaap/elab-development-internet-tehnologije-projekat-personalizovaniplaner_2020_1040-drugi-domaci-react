@@ -14,7 +14,7 @@ function App() {
     {
       id: 1,
       title: "Standardni planer",
-      url:"https://www.mininoplaneri.com/pub/catalog/17023084255994_make-it-happen.jpg",
+      url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/S34ne_1024x1024@2x.jpg?v=1603194973",
       description:
         "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
       amount: 0,
@@ -23,34 +23,34 @@ function App() {
     {
       id: 2,
       title: "Biznis planer",
-      url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17023055160709_master-plan.jpg",
+      url:"https://moj-rokovnik.myshopify.com/cdn/shop/files/standardni32ne_d67d6012-e279-49ee-b371-152535b6cfab_1024x1024@2x.jpg?v=1699527723",
       description:
-        "Funkcionalnost, preglednost i sveden dizajn spojeni u ovaj rokovnik koji ce biti vas najbolji saradnik u narednih godinu dana. Rokovnik sadrzi kalendar za 2 godine, mesecne i nedeljne planere za 12 meseci i vise od 30 strana za beleske.",
+        "Funkcionalnost, preglednost i sveden dizajn spojeni u ovaj rokovnik koji ce biti vas najbolji saradnik u narednih godinu dana. Rokovnik sadrzi kalendar za 2 godine.",
       amount: 0,
       price:"2000din"
     },
     {
       id: 3,
       title: "Planer za vencanje",
-      url:"https://www.mininoplaneri.com/pub/catalog/16751851586049_auto.jpg",
+      url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/vencanje3da_1024x1024@2x.jpg?v=1541440724",
       description:
-        "Planer za venčanje vas vodi kroz listu obaveza po mesecima informativno, a onda detaljno po sekcijama sa vama prelazi svaki segment, od odabira venčanice, cipela i aksesoara, preko kreiranja spiska gostiju i deljenja pozivnica, odabira prostora za svadbu, kupovine burmi, podele zaduženja, pa sve do najsitnijih detalja.",
+        "Planer za venčanje vas vodi kroz listu obaveza po mesecima informativno, a onda detaljno po sekcijama sa vama prelazi svaki segment sve do najsitnijih detalja.",
       amount: 0,
       price:"1700din"
     },
     {
         id: 4,
         title: "Planer ishrane",
-        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003864009044_modern_flowers2.jpg",
+        url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/planer-obroka7n_1024x1024@2x.jpg?v=1652436107",
         description:
-          "Praktican i lagan planer za sve one koji planiraju obroke unapred, prate poseban rezim ishrane ili jednostavno uzivaju u kuvanju.",
+          "Praktican i lagan planer za sve one koji planiraju obroke unapred, prate poseban rezim ishrane ili jednostavno uzivaju u kuvanju. Uz njega ce organizovanje obroka biti zanimljivo.",
         amount: 0,
         price:"1500din"
       },
       {
         id: 5,
         title: "Studentski planer",
-        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/skolski16ne_900x.jpg?v=1660557467",
         description:
           "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
         amount: 0,
@@ -58,28 +58,28 @@ function App() {
       },
       {
         id: 6,
-        title: "Studentski planer",
-        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        title: "Mini planer",
+        url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/skolski9ne_360x.jpg?v=1652448383",
         description:
-          "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+          "Praktičan i lagan rokovnik koji staje u svaku torbu. Sa kalendarom, stranama za određivanje najvažnijih ciljeva i obaveza i dovoljno mesta za beleške.",
         amount: 0,
         price:"1500din"
       },
       {
         id: 7,
-        title: "Studentski planer",
-        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        title: "Planer za putovanja",
+        url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/planer-putovanje2-n_360x.jpg?v=1652433318",
         description:
-          "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+          "Planer za zaljubljenike u putovanja. Za lakse i efikasnije planiranje putovanja. Uz njega nijedna sitnica nece biti zaboravljena i preostaje Vam samo da uzivate.",
         amount: 0,
         price:"1500din"
       },
       {
         id: 8,
-        title: "Studentski planer",
-        url:"https://www.mininoplaneri.com/pub/catalog/thumbs2/17003867287111_kafa.jpg",
+        title: "Goal-getter planer",
+        url:"https://moj-rokovnik.myshopify.com/cdn/shop/products/skolski15ne_360x.jpg?v=1660557343",
         description:
-          "Za lakse i efikasnije zavrsavanje obaveza na faksu. Uz njega ces moci dobro da organizujes oba semestra, pripremis ispite i zavrsis sve obaveze na vreme.",
+          "Planer za one kojima je potrebno više strukture i motivacije za organizaciju vremena i ostvarivanje ciljeva. Ako često ne uradiš ono što je najvažnije, ovaj planer će ti pomoći da odrediš prioritete.",
         amount: 0,
         price:"1500din"
       }
@@ -130,7 +130,7 @@ function App() {
             </>
           }
         />
-          <Route path="/" element={<Meni cartNum={cartNum} isHome={1} />}/>
+          <Route path="/" element={<Meni cartNum={cartNum}/>}/>
           <Route path="/cart" element={
           <>
           <Cart products={cartProducts}/>

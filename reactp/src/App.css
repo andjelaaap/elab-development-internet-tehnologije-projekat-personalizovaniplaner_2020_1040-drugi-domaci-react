@@ -1,7 +1,7 @@
 .navBar {
   display: flex;
   flex-direction: row;
-  background-color: rgb(211, 211, 211);
+  background-color: pink;
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: rgb(175, 175, 175);
@@ -19,7 +19,7 @@
 }
 
 .cart-num {
-  background-color: grey;
+  background-color: rgb(241, 99, 47);
   color: white;
    border-radius: 5px;
   text-align: center;
@@ -28,7 +28,6 @@
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 10px;
-
 }
 
 .all-products {
@@ -65,6 +64,7 @@
   border-radius: 3px;
   border-width: 2px;
   border-color: grey;
+ 
 }
 
 a {
@@ -112,20 +112,19 @@ a {
   text-align: center;
   font-size: 20px;
 }
-.menu-bar-items-div-else {
-  text-align: center;
-  display: inline;
-  margin-left: 30px;
-  font-size: 40px;
-  position: absolute;
-  margin-left: 110px;
-  margin-top: 29px;
-}
+
 .menu-bar-items {
   color: rgb(246, 244, 244);
-  text-decoration: none;
+  text-decoration: underline;
   font-size: 35px;
 }
+
+
+.menu-bar-text{
+  font-size: 20px;
+  font-style: italic;
+}
+
 .background-image {
   width: 100%;
   background-image: url('https://i.pinimg.com/736x/43/ba/d9/43bad91c990d43b28f82731ec85be268.jpg')
@@ -134,6 +133,7 @@ a {
 .card-price{
   text-align: center;
   text-decoration: underline;
+  margin-bottom: auto;
 }
 
 .pagination {
@@ -155,4 +155,17 @@ a {
   background-color: palevioletred;
   color: white;
   border-color: palevioletred;
+}
+
+.filter{
+ font-weight: bold;
+}
+
+.input{
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  border-color: #daa1a5;
+  border-width: 3px;
 }

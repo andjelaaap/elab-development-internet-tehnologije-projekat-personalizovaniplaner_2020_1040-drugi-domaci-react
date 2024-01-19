@@ -10,7 +10,6 @@ const usePagination = (itemsPerPage, initialPage = 0) => {
   const getItemsForCurrentPage = (items) => {
     const startIndex = currentPage * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-
     return items.slice(startIndex, endIndex);
   };
 

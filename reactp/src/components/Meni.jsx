@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 
-function Meni({ cartNum }) {
+function Meni() {
   return (
     <div className="background-image">
       <div className="menu-bar">
         <div className="menu-bar-text">
           <img
-            src="https://www.zeppelin.rs/login/media/images/categories/0-58254900-1666006933.png"
+            src={"https://www.zeppelin.rs/login/media/images/categories/0-58254900-1666006933.png"}
             alt="Opis slike"
             style={{ width: "200px", height: "auto" }}
           />

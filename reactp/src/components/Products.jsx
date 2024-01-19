@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import OneProduct from './OneProduct';
 import ReactPaginate from 'react-paginate';
 import usePagination from './usePagination';
+import axios from 'axios';
 
-const Products = ({ products, onAdd, remFromCart }) => {
+const Products = ({ products, addProduct, removeProduct }) => {
   const itemsPerPage = 6;
-  const { currentPage, handlePageChange, getItemsForCurrentPage, getPageCount } = usePagination(itemsPerPage);
+  const { handlePageChange, getItemsForCurrentPage, getPageCount } = usePagination(itemsPerPage);
 
   const [filter, setFilter] = useState('');
 
@@ -14,7 +15,7 @@ const Products = ({ products, onAdd, remFromCart }) => {
   };
 
   const filteredProducts = products.filter((prod) =>
-    prod.title.toLowerCase().includes(filter.toLowerCase())
+    prod.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   const paginatedProducts = getItemsForCurrentPage(filteredProducts);
@@ -33,8 +34,8 @@ const Products = ({ products, onAdd, remFromCart }) => {
               <OneProduct
                 product={prod}
                 key={prod.id}
-                onAdd={onAdd}
-                remFromCart={remFromCart}
+                addProduct={addProduct}
+                removeProduct={removeProduct}
                 inCart={1}
               />
             ))}
@@ -61,7 +62,7 @@ const Products = ({ products, onAdd, remFromCart }) => {
       <div>
         <ReactPaginate
           className='pagination'
-          pageCount={getPageCount(filteredProducts.length)}
+          pageCount={filteredProducts ? getPageCount(filteredProducts.length) : 0}
           pageRangeDisplayed={3}
           marginPagesDisplayed={1}
           onPageChange={handlePageChange}

@@ -2,6 +2,7 @@ import React from "react";
 import { BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { MdAccountBox } from "react-icons/md";
 
 function NavBar({ cartNum, token}) {
 

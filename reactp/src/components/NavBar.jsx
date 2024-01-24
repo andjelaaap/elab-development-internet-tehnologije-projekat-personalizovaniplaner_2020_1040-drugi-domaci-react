@@ -26,7 +26,6 @@ function NavBar({ cartNum, token}) {
     });
   }
 
-
   return (
     <div className="navBar">
       <img
@@ -39,14 +38,20 @@ function NavBar({ cartNum, token}) {
         <BsCart style={{ marginLeft: 10 }} />
         <a className="cart-num">{cartNum}</a>
       </Link>
+      <div className="linkContainer" style={{marginLeft:'auto', marginRight:'20px'}}>
       {token == null ? (
-      <div className="linkContainer">
-
+        <div>
+      <MdAccountBox style={{fontSize:'30px', marginRight:'5px'}}></MdAccountBox>
       <Link to="/login">PRIJAVI SE</Link>
-    </div>
+      </div>
       ) : (
+        <div>
+          <MdAccountBox style={{fontSize:'30px', marginRight:'5px'}}></MdAccountBox>
+          <label style={{fontWeight: 'bold', marginRight:'15px'}}>{window.sessionStorage.getItem("name_login")}</label>
         <Link to="/" onClick={handleLogout}>ODJAVI SE</Link>
+        </div>
       )}
+      </div>
     </div>
   );
 }

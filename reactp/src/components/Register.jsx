@@ -48,12 +48,12 @@ const Register = () => {
                 type="name"
                 id="form3Example2"
                 className="form-control form-control-lg"
-                placeholder="Enter a valid username"
+                placeholder="Unesite Vaše korisničko ime"
                 name='name'
                 onInput={ (e) => handleInput(e) }
               />
               <label className="form-label" htmlFor="form3Example2">
-                Username
+                Korisničko ime
               </label>
             </div>
 
@@ -62,12 +62,12 @@ const Register = () => {
                 type="email"
                 id="form3Example3"
                 className="form-control form-control-lg"
-                placeholder="Enter a valid email address"
+                placeholder="Unesite Vašu email adresu"
                 name='email'
                 onInput={ (e) => handleInput(e) }
               />
               <label className="form-label" htmlFor="form3Example3">
-                Email address
+                Email adresa
               </label>
             </div>
 
@@ -76,7 +76,7 @@ const Register = () => {
                 type="password"
                 id="form3Example4"
                 className="form-control form-control-lg"
-                placeholder="Enter password"
+                placeholder="Unesite password"
                 name='password'
                 onInput={ handleInput }
               />
@@ -94,7 +94,7 @@ const Register = () => {
                   paddingRight: 2.5 + "rem",
                 }}
               >
-                Register
+                Registruj se
               </button>
             </div>
           </form>

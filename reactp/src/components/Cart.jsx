@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import React from 'react';
 import OneProduct from './OneProduct';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 const Cart = ({ products }) => {
+  const [isLogin, setIsLogin] = useState(true);
   const generateInvoicePDF = () => {
+    setIsLogin(true)
     const pdf = new jsPDF();
     pdf.text('Vasa narudzbina je primljena, u prilogu Vam je dostavljen racun', 20, 20);
   
@@ -31,6 +34,18 @@ const Cart = ({ products }) => {
     pdf.save('racunnarudzbine.pdf');
   };
 
+  function isUserLoggedIn() {
+    return !!window.sessionStorage.getItem("auth_token");
+  }
+
+  const handleClick = () => {
+    if (isUserLoggedIn()) {
+       generateInvoicePDF()
+    } else {
+       setIsLogin(false);
+    }
+  };
+
   return (
     <div className="cart-container" style={{display:'flex', flexDirection:'column'}}>
       <h3>Ovo je tvoja korpa.</h3>
@@ -44,9 +59,12 @@ const Cart = ({ products }) => {
       ))}
       </div>
       
-      <button className="btn" style={{width: "15%", justifyContent:'center', alignItems:'center', marginTop:'15px'}} onClick={generateInvoicePDF}>
+      <button className="btn" style={{width: "15%", justifyContent:'center', alignItems:'center', marginTop:'15px', marginLeft: 'auto', marginRight: 'auto'}} onClick={handleClick}>
         Poruci
       </button>
+      <label style={{color: 'red', fontWeight: 'bold', justifyContent:'center', alignItems:'center', marginTop:'15px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '30px'}}>
+        {!isLogin && 'Morate biti registrovani!'}
+      </label>
     </div>
   );
 };

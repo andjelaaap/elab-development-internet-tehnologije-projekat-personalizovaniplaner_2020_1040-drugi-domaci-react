@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import OneProduct from './OneProduct';
 import ReactPaginate from 'react-paginate';
 import usePagination from './usePagination';
-import axios from 'axios';
 
 const Products = ({ products, addProduct, removeProduct }) => {
   const itemsPerPage = 6;
   const { handlePageChange, getItemsForCurrentPage, getPageCount } = usePagination(itemsPerPage);
 
-  const [filter, setFilter] = useState('');
+  const [filteri, setFilter] = useState('');
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
 
   const filteredProducts = products.filter((prod) =>
-    prod.name.toLowerCase().includes(filter.toLowerCase())
+    prod.name.toLowerCase().includes(filteri.toLowerCase())
   );
 
   const paginatedProducts = getItemsForCurrentPage(filteredProducts);
@@ -52,7 +51,7 @@ const Products = ({ products, addProduct, removeProduct }) => {
         <input className='input'
           type='text'
           id='filter'
-          value={filter}
+          value={filteri}
           onChange={handleFilterChange}
         />
       </div>

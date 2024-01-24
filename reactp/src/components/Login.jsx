@@ -9,7 +9,11 @@ const Login = ({ addToken }) => {
     password: "",
   });
 
+  const [isLogin, setIsLogin] = useState(true);
+  
+
   function handleInput(e) {
+        setIsLogin(true)
     let newUserData = userData;
     newUserData[e.target.name] = e.target.value;
     console.log(newUserData);
@@ -27,10 +31,12 @@ const Login = ({ addToken }) => {
             "auth_token",
             response.data.access_token
           );
+          window.sessionStorage.setItem("name_login", response.data.message)
           addToken(response.data.access_token);
         navigate("/");
       })
       .catch((error) => {
+        setIsLogin(false)
         console.log(error);
       });
   }
@@ -56,7 +62,7 @@ const Login = ({ addToken }) => {
                   onInput={(e) => handleInput(e)}
                 />
                 <label className="form-label" htmlFor="form3Example3">
-                  Email address
+                  Email adresa
                 </label>
               </div>
 
@@ -65,13 +71,20 @@ const Login = ({ addToken }) => {
                   type="password"
                   id="form3Example4"
                   className="form-control form-control-lg"
-                  placeholder="Enter password"
+                  placeholder="Unesite password"
                   name="password"
                   onInput={handleInput}
                 />
+                <div style={{display: 'flex', flexDirection: 'column'}}>
                 <label className="form-label" htmlFor="form3Example4">
                   Password
                 </label>
+                <label style={{color: 'red', fontWeight: 'bold'}}>
+                {!isLogin && 'Korisničko ime ili password koji ste uneli je nepostojeći! Ukoliko nemate nalog morate se registrovati.'}
+                </label>
+
+                </div>
+
               </div>
 
               <div className="text-center text-lg-start mt-4 pt-2">
@@ -86,9 +99,9 @@ const Login = ({ addToken }) => {
                   Login
                 </button>
                 <p className="small fw-bold mt-2 pt-1 mb-0">
-                  Don't have an account?{" "}
+                  Nemas nalog?{" "}
                   <a href="/register" className="link-danger">
-                    Register
+                    Registruj se
                   </a>
                 </p>
               </div>

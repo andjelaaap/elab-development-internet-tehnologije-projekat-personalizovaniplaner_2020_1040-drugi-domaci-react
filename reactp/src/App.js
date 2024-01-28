@@ -9,15 +9,22 @@ import Meni from './components/Meni';
 import Login from './components/Login';
 import Register from './components/Register';
 import axios from 'axios';
+import AdministratorLogin from './components/AdministratorLogin';
+import CreatePlanerForm from './components/CreatePlanerForm';
 
 function App() {
   const[cartNum, setCartNum] = useState(0);
   const[cartProducts, setCartProducts] = useState([]);
 
   const [token, setToken] = useState();
+  const [token2, setToken2] = useState();
 
   function addToken(auth_token) {
     setToken(auth_token);
+  }
+
+  function addToken2(auth_token2) {
+    setToken2(auth_token2);
   }
 
   const [products, setProducts] = useState();
@@ -66,7 +73,7 @@ useEffect(() => {
   return (
     <BrowserRouter className="App">
      
-        <NavBar cartNum={cartNum} token={token} addToken = { addToken }/>
+        <NavBar cartNum={cartNum} token={token} addToken = { addToken } token2={token2} addToken2 = {addToken2}/>
         <Routes>
         <Route
           path="/products"
@@ -75,13 +82,16 @@ useEffect(() => {
               <Products
                 products={products}
                 addProduct={addProduct}
-                removeProduct={removeProduct}   
+                removeProduct={removeProduct}  
+                token={token2} 
               />
             </>
           }
         />
           <Route path="/" element={<Meni/>}/>
+          <Route path="/createPlaner" element={<CreatePlanerForm/>}/>
           <Route path="/login" element={<Login addToken = { addToken }/>}/>
+          <Route path="/login2" element={<AdministratorLogin addToken = { addToken2 }/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/cart" element={
           <Cart products={cartProducts} />

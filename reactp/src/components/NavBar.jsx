@@ -3,8 +3,10 @@ import { BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdAccountBox } from "react-icons/md";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownToggle from "react-bootstrap/DropdownToggle";
 
-function NavBar({ cartNum, token, addToken}) {
+function NavBar({ cartNum, token, token2, addToken, addToken2}) {
 
   function handleLogout(){
     let config = {
@@ -26,6 +28,30 @@ function NavBar({ cartNum, token, addToken}) {
       console.log(error);
     });
   }
+
+  function handleLogout2(){
+    let config = {
+      method: 'post',
+      url: 'api/logout2',
+      headers: { 
+        'Authorization': 'Bearer ' + token2, 
+      },
+    };
+    
+    axios
+    .request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+      window.sessionStorage.removeItem('auth_token2');
+      addToken2(null);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+
+  console.log("Vrijednost token1:", token);
+          console.log("Vrijednost token2:", token2);
   
   return (
     <div className="navBar">
@@ -40,17 +66,26 @@ function NavBar({ cartNum, token, addToken}) {
         <a className="cart-num">{cartNum}</a>
       </Link>
       <div className="linkContainer" style={{marginLeft:'auto', marginRight:'20px'}}>
-      {token == null ? (
-        <div>
-      <MdAccountBox style={{fontSize:'30px', marginRight:'5px'}}></MdAccountBox>
-      <Link to="/login">PRIJAVI SE</Link>
+      {((token == null) && (token2 == null)) ? (
+        <div style={{display:"flex", flexDirection:"row"}}>
+      <MdAccountBox style={{fontSize:'30px', marginRight:'5px', height:'50px'}}></MdAccountBox>
+      <Dropdown>
+      <DropdownToggle variant="success" id="dropdown-basic">
+        PRIJAVI SE
+      </DropdownToggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="/login">Prijava za kupce</Dropdown.Item>
+        <Dropdown.Item href="/login2">Prijava za administratora</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
       </div>
       ) : (
         <div>
           <MdAccountBox style={{fontSize:'30px', marginRight:'5px'}}></MdAccountBox>
           <label style={{fontWeight: 'bold', marginRight:'15px'}}>{window.sessionStorage.getItem("name_login")}
-          </label>
-        <Link to="/" onClick={handleLogout}>ODJAVI SE</Link>
+          </label>       
+        <Link to="/" onClick={token2 == null ? handleLogout : handleLogout2}>ODJAVI SE</Link>
         </div>
       )}
       </div>

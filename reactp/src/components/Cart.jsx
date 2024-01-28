@@ -4,12 +4,13 @@ import OneProduct from './OneProduct';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
-const Cart = ({ products }) => {
+const Cart = ({ products}) => {
   const [isLogin, setIsLogin] = useState(true);
+
   const generateInvoicePDF = () => {
     setIsLogin(true)
     const pdf = new jsPDF();
-    pdf.text('Vasa narudzbina je primljena, u prilogu Vam je dostavljen racun', 20, 20);
+    pdf.text('Vaša narudzbina je primljena, u prilogu Vam je dostavljen račun', 20, 20);
   
     pdf.setFontSize(12);
     pdf.setFont('helvetica', 'normal');
@@ -34,17 +35,18 @@ const Cart = ({ products }) => {
     pdf.save('racunnarudzbine.pdf');
   };
 
-  function isUserLoggedIn() {
-    return !!window.sessionStorage.getItem("auth_token");
-  }
+
 
   const handleClick = () => {
-    if (isUserLoggedIn()) {
-       generateInvoicePDF()
+    const authToken = window.sessionStorage.getItem("auth_token");
+  
+    if (authToken !== null) {
+      generateInvoicePDF();
     } else {
-       setIsLogin(false);
+      setIsLogin(false);
     }
   };
+  
 
   return (
     <div className="cart-container" style={{display:'flex', flexDirection:'column'}}>
@@ -63,7 +65,7 @@ const Cart = ({ products }) => {
         Poruci
       </button>
       <label style={{color: 'red', fontWeight: 'bold', justifyContent:'center', alignItems:'center', marginTop:'15px', marginLeft: 'auto', marginRight: 'auto', marginBottom: '30px'}}>
-        {!isLogin && 'Morate biti registrovani!'}
+        {!isLogin && 'Morate biti prijavljeni!'}
       </label>
     </div>
   );

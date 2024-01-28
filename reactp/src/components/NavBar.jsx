@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdAccountBox } from "react-icons/md";
 
-function NavBar({ cartNum, token}) {
+function NavBar({ cartNum, token, addToken}) {
 
   function handleLogout(){
     let config = {
@@ -19,13 +19,14 @@ function NavBar({ cartNum, token}) {
     .request(config)
     .then((response) => {
       console.log(JSON.stringify(response.data));
-      window.sessionStorage.setItem("auth_token", null);
+      window.sessionStorage.removeItem('auth_token');
+      addToken(null);
     })
     .catch((error) => {
       console.log(error);
     });
   }
-
+  
   return (
     <div className="navBar">
       <img
@@ -47,7 +48,8 @@ function NavBar({ cartNum, token}) {
       ) : (
         <div>
           <MdAccountBox style={{fontSize:'30px', marginRight:'5px'}}></MdAccountBox>
-          <label style={{fontWeight: 'bold', marginRight:'15px'}}>{window.sessionStorage.getItem("name_login")}</label>
+          <label style={{fontWeight: 'bold', marginRight:'15px'}}>{window.sessionStorage.getItem("name_login")}
+          </label>
         <Link to="/" onClick={handleLogout}>ODJAVI SE</Link>
         </div>
       )}

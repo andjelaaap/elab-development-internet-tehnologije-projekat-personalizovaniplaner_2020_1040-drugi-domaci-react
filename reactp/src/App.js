@@ -66,7 +66,7 @@ useEffect(() => {
   return (
     <BrowserRouter className="App">
      
-        <NavBar cartNum={cartNum} token={token}/>
+        <NavBar cartNum={cartNum} token={token} addToken = { addToken }/>
         <Routes>
         <Route
           path="/products"
@@ -84,7 +84,7 @@ useEffect(() => {
           <Route path="/login" element={<Login addToken = { addToken }/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/cart" element={
-          <Cart products={cartProducts}/>
+          <Cart products={cartProducts} />
           }
           />
         </Routes>
